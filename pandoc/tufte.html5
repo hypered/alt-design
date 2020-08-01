@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html$if(lang)$ lang="$lang$"$endif$$if(dir)$ dir="$dir$"$endif$>
 <head>
+  <!--
+  This file uses a modified Pandoc template initially from
+  https://github.com/jez/tufte-pandoc-css, together with CSS from
+  https://edwardtufte.github.io/tufte-css/.
+  -->
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -23,9 +28,9 @@ $if(highlighting-css)$
 $highlighting-css$
   </style>
 $endif$
-$for(css)$
-  <link rel="stylesheet" href="$css$">
-$endfor$
+  <link rel="stylesheet" href="/static/css/tufte.css">
+  <link rel="stylesheet" href="/static/css/pandoc.css">
+  <link rel="stylesheet" href="/static/css/tufte-hypered.css">
 $if(math)$
   $math$
 $endif$
