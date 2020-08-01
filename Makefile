@@ -21,3 +21,7 @@ _site/%.html: %.md pandoc/tufte.html5
 
 _site/static: static
 	cp -r $< $@
+
+.PHONY: entr
+entr:
+	(find . -name '*.md' ; ls pandoc/tufte.html5) | entr -c bash -c 'make'
