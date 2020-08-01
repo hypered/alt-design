@@ -24,4 +24,5 @@ _site/static: static
 
 .PHONY: entr
 entr:
-	(find . -name '*.md' ; ls pandoc/tufte.html5) | entr -c bash -c 'make'
+	(find . -name '*.md' ; find static -name '*.css' ; ls pandoc/tufte.html5) \
+		| entr -c bash -c 'make'
