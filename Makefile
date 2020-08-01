@@ -6,7 +6,7 @@ TARGETS := $(addprefix _site/, $(HTML_FILES))
 
 
 .PHONY: all
-all: $(TARGETS) _site/index.html _site/static
+all: $(TARGETS) _site/index.html _site/static/css/tufte.css _site/static/css/et-book.css
 
 
 _site/%.html: %.md pandoc/tufte.html5
@@ -19,10 +19,10 @@ _site/%.html: %.md pandoc/tufte.html5
 		--output $@ \
 		$<
 
-_site/static: static
-	cp -r $< $@
+_site/%.css: %.css
+	cp $< $@
 
 .PHONY: entr
 entr:
-	(find . -name '*.md' ; find static -name '*.css' ; ls pandoc/tufte.html5) \
+	(find . -name '*.md' ; find static -name '*.css' ; ls Makefile pandoc/tufte.html5) \
 		| entr -c bash -c 'make'

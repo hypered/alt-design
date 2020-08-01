@@ -28,6 +28,7 @@ $if(highlighting-css)$
 $highlighting-css$
   </style>
 $endif$
+  <link rel="stylesheet" href="/static/css/et-book.css">
   <link rel="stylesheet" href="/static/css/tufte.css">
   <link rel="stylesheet" href="/static/css/pandoc.css">
   <link rel="stylesheet" href="/static/css/tufte-hypered.css">
