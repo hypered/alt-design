@@ -34,3 +34,21 @@ It is recommended to serve the `_site/` directory with Browsersync.
 - Use Pandoc filters:
    - `pandoc-sidenote`
 - Use a `Makefile` to rebuild only what needs to be rebuild
+
+The `datasette/templates/` directory has been created by (`2aca479` was a
+previously run of a Docker container):
+
+```
+$ docker cp 2aca479:/usr/local/lib/python3.7/site-packages/datasette/templates .
+```
+
+The version was `datasette, version 0.45+0.gf1f581b.dirty`.
+
+Note: it's interesting to know that the [Datasette Docker
+image](https://github.com/simonw/datasette/blob/master/Dockerfile) is based on
+Debian:
+
+```
+$ docker run datasetteproject/datasette cat /etc/debian_version
+9.8
+```
