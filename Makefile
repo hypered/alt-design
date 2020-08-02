@@ -19,6 +19,7 @@ _site/%.html: %.md pandoc/tufte.html5
 		--section-divs \
 		--to html5 \
 		--template pandoc/tufte.html5 \
+		--filter filters/pandoc-sidenote.hs \
 		--output $@ \
 		$<
 
