@@ -6,7 +6,10 @@ TARGETS := $(addprefix _site/, $(HTML_FILES))
 
 
 .PHONY: all
-all: $(TARGETS) _site/index.html _site/static/css/tufte.css _site/static/css/et-book.css
+all: $(TARGETS) _site/index.html \
+  _site/static/css/et-book.css \
+  _site/static/css/ibm-plex.css \
+  _site/static/css/tufte.css
 
 
 _site/%.html: %.md pandoc/tufte.html5
