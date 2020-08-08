@@ -5,6 +5,9 @@
 # additional flexibility (e.g. recognising virtual hosts). It is also possible
 # that Datasette is not completely comfortable with modified routes:
 # https://github.com/simonw/datasette/issues/900.
+#
+# In addition to this image, this repository has its own set of templates in
+# datasette/templates/.
 
 FROM datasetteproject/datasette
 
