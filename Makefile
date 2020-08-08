@@ -6,13 +6,16 @@ TARGETS := $(addprefix _site/, $(HTML_FILES))
 
 
 .PHONY: all
-all: $(TARGETS) _site/index.html \
+all: $(TARGETS) index.html \
   _site/data/example-00.csv \
   _site/static/css/et-book.css \
   _site/static/css/ibm-plex.css \
   _site/static/css/tufte.css \
   _site/static/js/graphs/example-00.js
 
+_site/index.html: _site/README.html
+	mkdir -p $(dir $@)
+	cp $< $@
 
 _site/%.html: %.md pandoc/tufte.html5
 	mkdir -p $(dir $@)
