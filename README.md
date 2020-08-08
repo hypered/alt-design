@@ -52,3 +52,28 @@ Debian:
 $ docker run datasetteproject/datasette cat /etc/debian_version
 9.8
 ```
+
+
+# Adding graphs
+
+In the margin, there is an example horizontal bar chart.[^bar] The displayed
+data are random values and don't represent anything meaningful.
+
+It is created by a bit of `D3.js` code, and by placing the following line in
+the source of this page:
+
+```
+<svg id="example-00" data-csv="/data/example-00.csv"></svg>
+```
+
+[^bar]:
+  {-} `example-00`: <svg id="example-00" data-csv="/data/example-00.csv"></svg>
+
+The style of the graph and some of its underlying code comes from
+[goodwill.awardwinninghuman.com](https://goodwill.awardwinninghuman.com/).
+
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://d3js.org/d3-array.v2.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script type="text/javascript" src="/static/js/graphs/example-00.js"></script>
