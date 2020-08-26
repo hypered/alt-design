@@ -27,13 +27,30 @@ $ scripts/entr.sh
 It is recommended to serve the `_site/` directory with Browsersync.
 
 
+# Docker image
+
+A Docker image is provided. It contains a Nginx server made to serve the
+rendered Markdown files (together with their static assets) and also Datasette,
+which can be used to explore a SQLite database, or to provide data to the
+`D3.js` graphs demonstrated below.
+
+To build it, use `scripts/build-docker-image.sh`, and to run it, use
+`scripts/run-datasette-image.sh`.
+
+
+# Datasette
+
+When deployed (e.g. using the Docker image above), a Datasette instance should
+be exposed on [`/datasette/`](/datasette/).
+
+
 # Details
 
 - Use Pandoc to render Markdown files to HTML
 - Use (a modified) Tufte CSS with the IBM Plex font
 - Use Pandoc filters:
    - `pandoc-sidenote`
-- Use a `Makefile` to rebuild only what needs to be rebuild
+- Use a `Makefile` to rebuild only what needs to be rebuilt
 
 The `datasette/templates/` directory has been created by (`2aca479` was a
 previously run of a Docker container):

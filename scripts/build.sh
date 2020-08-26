@@ -3,4 +3,4 @@
 
 mkdir -p _site
 cp -r static _site/
-make entr
+make

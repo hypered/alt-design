@@ -14,7 +14,8 @@ all: $(TARGETS) \
   _site/static/css/tufte.css \
   _site/static/css/tufte-hypered.css \
   _site/static/css/fullscreen.css \
-  _site/static/js/graphs/example-00.js
+  _site/static/js/graphs/example-00.js \
+  _site/index.html
 
 _site/index.html: _site/README.html
 	mkdir -p $(dir $@)

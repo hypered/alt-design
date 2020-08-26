@@ -4,6 +4,13 @@
 
 {% block body_class %}index{% endblock %}
 
+{% block nav %}
+    <p class="crumbs">
+        <a href="/">Home</a>
+    </p>
+    {{ super() }}
+{% endblock %}
+
 {% block content %}
 <h1>{{ metadata.title or "Datasette" }}{% if private %} 🔒{% endif %}</h1>
 
