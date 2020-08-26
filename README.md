@@ -63,15 +63,27 @@ It is created by a bit of `D3.js` code, and by placing the following line in
 the source of this page:
 
 ```
-<svg id="example-00" data-csv="/data/example-00.csv"></svg>
+<svg data-graph="horizontal-bar" data-csv="/data/example-00.csv"></svg>
 ```
 
 [^bar]:
-  {-} `example-00`: <svg id="example-00" data-csv="/data/example-00.csv"></svg>
+  {-} `example-00`: <svg data-graph="horizontal-bar" data-csv="/data/example-00.csv" data-color="blue"></svg>
 
-The style of the graph and some of its underlying code comes from
+TODO: The graph code is not re-executed when the margin note is initially
+hidden then made visible, or when the window is resized.
+
+<figure>
+<svg data-graph="line" data-csv="/data/example-01.csv"></svg>[^links]
+</figure>
+
+[^links]:
+  {-} View this graph in [fullpage](/fullscreen.html).
+      View the [CSV data](/data/example-01.csv).
+
+
+The style of the graphs, some of their underlying code, and their data come
+originally from
 [goodwill.awardwinninghuman.com](https://goodwill.awardwinninghuman.com/).
-
 
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://d3js.org/d3-array.v2.min.js"></script>

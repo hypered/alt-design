@@ -6,11 +6,14 @@ TARGETS := $(addprefix _site/, $(HTML_FILES))
 
 
 .PHONY: all
-all: $(TARGETS) index.html \
+all: $(TARGETS) \
   _site/data/example-00.csv \
+  _site/data/example-01.csv \
   _site/static/css/et-book.css \
   _site/static/css/ibm-plex.css \
   _site/static/css/tufte.css \
+  _site/static/css/tufte-hypered.css \
+  _site/static/css/fullscreen.css \
   _site/static/js/graphs/example-00.js
 
 _site/index.html: _site/README.html
@@ -42,5 +45,5 @@ _site/%.js: %.js
 
 .PHONY: entr
 entr:
-	(find . -name '*.md' ; find static -name '*.css' -o -name '*.js' ; ls Makefile pandoc/tufte.html5) \
+	(find . -name '*.md' ; find static -name '*.css' -o -name '*.js' ; find data -name '*.csv' ; ls Makefile pandoc/tufte.html5) \
 		| entr -c bash -c 'make'

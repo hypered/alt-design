@@ -376,7 +376,7 @@ label.margin-toggle:not(.sidenote-number) {
     }
 
     figure {
-        max-width: 90%;
+        max-width: 100%; /* original tufte.css is 90% */
     }
 
     figcaption,

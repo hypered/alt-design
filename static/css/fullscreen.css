@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* This reverts some of tufte.css values. Probably it would be better
+   to have a CSS file that results in the same appearance but without
+   using tufte.css.
+ */
+body {
+  width: 95%;
+  padding: 0;
+  margin-top: 4%;
+}
