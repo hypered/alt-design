@@ -6,19 +6,34 @@ title: alt-design
 
 The central element of this repository[^compl] is a Pandoc template used to
 render Markdown files to HTML. The basis is from
-https://github.com/jez/tufte-pandoc-css, itself based on
-https://github.com/edwardtufte/tufte-css.
+[jez/tufte-pandoc-css](https://github.com/jez/tufte-pandoc-css), itself based
+on [edwardtufte/tufte-css](https://github.com/edwardtufte/tufte-css).
 
 [^compl]:
-  It is complementary to https://github.com/hypered/design-system.
+  It is complementary to
+  [hypered/design-system](https://github.com/hypered/design-system).
 
 </section>
 
 
+# Building
+
+Building the static HTML files is done by the `Makefile`. A helper script that
+includes a Nix-based sha-bang is provided:
+
+```
+$ script/build.sh
+```
+
+That script is also used within the `Dockerfile` and the GitHub Action. The
+result is pushed to GitHub Pages (and thus doesn't provide the Datasette
+backend).
+
+
 # Running locally
 
-There is a helper script based on `entr` to continuously rebuild the `_site`
-directory:
+There is a also helper script based on `entr` to continuously rebuild the `_site`
+directory whenever a source file changes:
 
 ```
 $ scripts/entr.sh
