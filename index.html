@@ -27,6 +27,7 @@
 </header>
 <nav id="TOC">
 <ul>
+<li><a href="#building">Building</a></li>
 <li><a href="#running-locally">Running locally</a></li>
 <li><a href="#docker-image">Docker image</a></li>
 <li><a href="#datasette">Datasette</a></li>
@@ -35,13 +36,19 @@
 </ul>
 </nav>
 <section>
-<p>The central element of this repository<span><label for="sn-0" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-0" class="margin-toggle"/><span class="sidenote">It is complementary to https://github.com/hypered/design-system.<br />
+<p>The central element of this repository<span><label for="sn-0" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-0" class="margin-toggle"/><span class="sidenote">It is complementary to <a href="https://github.com/hypered/design-system">hypered/design-system</a>.<br />
 <br />
-</span></span> is a Pandoc template used to render Markdown files to HTML. The basis is from https://github.com/jez/tufte-pandoc-css, itself based on https://github.com/edwardtufte/tufte-css.</p>
+</span></span> is a Pandoc template used to render Markdown files to HTML. The basis is from <a href="https://github.com/jez/tufte-pandoc-css">jez/tufte-pandoc-css</a>, itself based on <a href="https://github.com/edwardtufte/tufte-css">edwardtufte/tufte-css</a>.</p>
+</section>
+<section id="building" class="level1">
+<h1>Building</h1>
+<p>Building the static HTML files is done by the <code>Makefile</code>. A helper script that includes a Nix-based sha-bang is provided:</p>
+<pre><code>$ script/build.sh</code></pre>
+<p>That script is also used within the <code>Dockerfile</code> and the GitHub Action. The result is pushed to GitHub Pages (and thus doesn’t provide the Datasette backend).</p>
 </section>
 <section id="running-locally" class="level1">
 <h1>Running locally</h1>
-<p>There is a helper script based on <code>entr</code> to continuously rebuild the <code>_site</code> directory:</p>
+<p>There is a also helper script based on <code>entr</code> to continuously rebuild the <code>_site</code> directory whenever a source file changes:</p>
 <pre><code>$ scripts/entr.sh</code></pre>
 <p>It is recommended to serve the <code>_site/</code> directory with Browsersync.</p>
 </section>
