@@ -84,18 +84,19 @@ the source of this page:
 ```
 
 [^bar]:
-  {-} `example-00`: <svg data-graph="horizontal-bar" data-csv="/data/example-00.csv" data-color="blue"></svg>
+  {-} `example-00`: <svg data-graph="horizontal-bar" data-csv="/datasette/main.csv?sql=select+*+from+example_00&_size=max" data-color="blue"></svg><br>
+  <small>View data [in Datasette](/datasette/main?sql=select+*+from+example_00).</small>
 
 TODO: The graph code is not re-executed when the margin note is initially
 hidden then made visible, or when the window is resized.
 
 <figure>
-<svg data-graph="line" data-csv="/data/example-01.csv"></svg>[^links]
+<svg data-graph="line" data-csv="/datasette/main.csv?sql=select+*+from+example_01&_size=max"></svg>[^links]
 </figure>
 
 [^links]:
-  {-} View this graph in [fullpage](/fullscreen.html).
-      View the [CSV data](/data/example-01.csv).
+  {-} <small>View this graph [in fullpage](/fullscreen.html).</small>
+      <small>View data [in Datasette](/datasette/main?sql=select+*+from+example_01).</small>
 
 
 The style of the graphs, some of their underlying code, and their data come

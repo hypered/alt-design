@@ -34,7 +34,7 @@ RUN nix-shell -p entr gnumake \
 
 FROM datasetteproject/datasette
 
-RUN pip install datasette-json-html
+RUN pip install csvs-to-sqlite datasette-json-html
 
 RUN apt-get update \
   && apt-get install -y nginx \
@@ -42,11 +42,18 @@ RUN apt-get update \
 
 RUN rm /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 RUN rm -rf /usr/share/nginx/html/*
-RUN mkdir -p /usr/share/datasette
 
 COPY --from=builder /app/_site /usr/share/nginx/html
-COPY datasette/templates /usr/share/datasette/templates
 ADD images/datasette/run.sh /
 ADD images/datasette/nginx-default.conf /etc/nginx/conf.d/default.conf
+
+RUN mkdir -p /usr/share/datasette
+COPY datasette/templates /usr/share/datasette/templates
+RUN csvs-to-sqlite --table example_00 \
+  /usr/share/nginx/html/data/example-00.csv \
+  /usr/share/datasette/main.db
+RUN csvs-to-sqlite --table example_01 \
+  /usr/share/nginx/html/data/example-01.csv \
+  /usr/share/datasette/main.db
 
 CMD /run.sh
