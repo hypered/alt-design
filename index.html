@@ -36,30 +36,49 @@
 </ul>
 </nav>
 <section>
-<p>The central element of this repository<span><label for="sn-0" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-0" class="margin-toggle"/><span class="sidenote">It is complementary to <a href="https://github.com/hypered/design-system">hypered/design-system</a>.<br />
+<p>The central element of this
+repository<span><label for="sn-0" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-0" class="margin-toggle"/><span
+class="sidenote">It is complementary to <a
+href="https://github.com/hypered/design">hypered/design</a>.<br />
 <br />
-</span></span> is a Pandoc template used to render Markdown files to HTML. The basis is from <a href="https://github.com/jez/tufte-pandoc-css">jez/tufte-pandoc-css</a>, itself based on <a href="https://github.com/edwardtufte/tufte-css">edwardtufte/tufte-css</a>.</p>
+</span></span> is a Pandoc template used to render Markdown files to
+HTML. The basis is from <a
+href="https://github.com/jez/tufte-pandoc-css">jez/tufte-pandoc-css</a>,
+itself based on <a
+href="https://github.com/edwardtufte/tufte-css">edwardtufte/tufte-css</a>.</p>
 </section>
 <section id="building" class="level1">
 <h1>Building</h1>
-<p>Building the static HTML files is done by the <code>Makefile</code>. A helper script that includes a Nix-based sha-bang is provided:</p>
+<p>Building the static HTML files is done by the <code>Makefile</code>.
+A helper script that includes a Nix-based sha-bang is provided:</p>
 <pre><code>$ script/build.sh</code></pre>
-<p>That script is also used within the <code>Dockerfile</code> and the GitHub Action. The result is pushed to GitHub Pages (and thus doesn’t provide the Datasette backend).</p>
+<p>That script is also used within the <code>Dockerfile</code> and the
+GitHub Action. The result is pushed to GitHub Pages (and thus doesn’t
+provide the Datasette backend).</p>
 </section>
 <section id="running-locally" class="level1">
 <h1>Running locally</h1>
-<p>There is a also helper script based on <code>entr</code> to continuously rebuild the <code>_site</code> directory whenever a source file changes:</p>
+<p>There is a also helper script based on <code>entr</code> to
+continuously rebuild the <code>_site</code> directory whenever a source
+file changes:</p>
 <pre><code>$ scripts/entr.sh</code></pre>
-<p>It is recommended to serve the <code>_site/</code> directory with Browsersync.</p>
+<p>It is recommended to serve the <code>_site/</code> directory with
+Browsersync.</p>
 </section>
 <section id="docker-image" class="level1">
 <h1>Docker image</h1>
-<p>A Docker image is provided. It contains a Nginx server made to serve the rendered Markdown files (together with their static assets) and also Datasette, which can be used to explore a SQLite database, or to provide data to the <code>D3.js</code> graphs demonstrated below.</p>
-<p>To build it, use <code>scripts/build-docker-image.sh</code>, and to run it, use <code>scripts/run-datasette-image.sh</code>.</p>
+<p>A Docker image is provided. It contains a Nginx server made to serve
+the rendered Markdown files (together with their static assets) and also
+Datasette, which can be used to explore a SQLite database, or to provide
+data to the <code>D3.js</code> graphs demonstrated below.</p>
+<p>To build it, use <code>scripts/build-docker-image.sh</code>, and to
+run it, use <code>scripts/run-datasette-image.sh</code>.</p>
 </section>
 <section id="datasette" class="level1">
 <h1>Datasette</h1>
-<p>When deployed (e.g. using the Docker image above), a Datasette instance should be exposed on <a href="/datasette/"><code>/datasette/</code></a>.</p>
+<p>When deployed (e.g. using the Docker image above), a Datasette
+instance should be exposed on <a
+href="/datasette/"><code>/datasette/</code></a>.</p>
 </section>
 <section id="details" class="level1">
 <h1>Details</h1>
@@ -70,31 +89,51 @@
 <ul>
 <li><code>pandoc-sidenote</code></li>
 </ul></li>
-<li>Use a <code>Makefile</code> to rebuild only what needs to be rebuilt</li>
+<li>Use a <code>Makefile</code> to rebuild only what needs to be
+rebuilt</li>
 </ul>
-<p>The <code>datasette/templates/</code> directory has been created by (<code>2aca479</code> was a previously run of a Docker container):</p>
+<p>The <code>datasette/templates/</code> directory has been created by
+(<code>2aca479</code> was a previously run of a Docker container):</p>
 <pre><code>$ docker cp 2aca479:/usr/local/lib/python3.7/site-packages/datasette/templates .</code></pre>
-<p>The version was <code>datasette, version 0.45+0.gf1f581b.dirty</code>.</p>
-<p>Note: it’s interesting to know that the <a href="https://github.com/simonw/datasette/blob/master/Dockerfile">Datasette Docker image</a> is based on Debian:</p>
+<p>The version was
+<code>datasette, version 0.45+0.gf1f581b.dirty</code>.</p>
+<p>Note: it’s interesting to know that the <a
+href="https://github.com/simonw/datasette/blob/master/Dockerfile">Datasette
+Docker image</a> is based on Debian:</p>
 <pre><code>$ docker run datasetteproject/datasette cat /etc/debian_version
 9.8</code></pre>
 </section>
 <section id="adding-graphs" class="level1">
 <h1>Adding graphs</h1>
-<p>In the margin, there is an example horizontal bar chart.<span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> <code>example-00</code>: <svg data-graph="horizontal-bar" data-csv="/datasette/main.csv?sql=select+*+from+example_00&_size=max" data-color="blue"></svg><br> <small>View data <a href="/datasette/main?sql=select+*+from+example_00">in Datasette</a>.</small><br />
+<p>In the margin, there is an example horizontal bar
+chart.<span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span
+class="marginnote"> <code>example-00</code>:
+<svg data-graph="horizontal-bar" data-csv="/datasette/main.csv?sql=select+*+from+example_00&_size=max" data-color="blue"></svg><br>
+<small>View data <a
+href="/datasette/main?sql=select+*+from+example_00">in
+Datasette</a>.</small><br />
 <br />
-</span></span> The displayed data are random values and don’t represent anything meaningful.</p>
-<p>It is created by a bit of <code>D3.js</code> code, and by placing the following line in the source of this page:</p>
+</span></span> The displayed data are random values and don’t represent
+anything meaningful.</p>
+<p>It is created by a bit of <code>D3.js</code> code, and by placing the
+following line in the source of this page:</p>
 <pre><code>&lt;svg data-graph=&quot;horizontal-bar&quot; data-csv=&quot;/data/example-00.csv&quot;&gt;&lt;/svg&gt;</code></pre>
-<p>TODO: The graph code is not re-executed when the margin note is initially hidden then made visible, or when the window is resized.</p>
+<p>TODO: The graph code is not re-executed when the margin note is
+initially hidden then made visible, or when the window is resized.</p>
 <figure>
 <svg data-graph="line" data-csv="/datasette/main.csv?sql=select+*+from+example_01&amp;_size=max">
 </svg>
-<span><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote"> <small>View this graph <a href="/fullscreen.html">in fullpage</a>.</small> <small>View data <a href="/datasette/main?sql=select+*+from+example_01">in Datasette</a>.</small><br />
+<span><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span
+class="marginnote"> <small>View this graph <a href="/fullscreen.html">in
+fullpage</a>.</small> <small>View data <a
+href="/datasette/main?sql=select+*+from+example_01">in
+Datasette</a>.</small><br />
 <br />
 </span></span>
 </figure>
-<p>The style of the graphs, some of their underlying code, and their data come originally from <a href="https://goodwill.awardwinninghuman.com/">goodwill.awardwinninghuman.com</a>.</p>
+<p>The style of the graphs, some of their underlying code, and their
+data come originally from <a
+href="https://goodwill.awardwinninghuman.com/">goodwill.awardwinninghuman.com</a>.</p>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://d3js.org/d3-array.v2.min.js"></script>
 <script src="https://d3js.org/topojson.v2.min.js"></script>
