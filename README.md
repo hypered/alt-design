@@ -11,7 +11,7 @@ on [edwardtufte/tufte-css](https://github.com/edwardtufte/tufte-css).
 
 [^compl]:
   It is complementary to
-  [hypered/design-system](https://github.com/hypered/design-system).
+  [hypered/design](https://github.com/hypered/design).
 
 </section>
 
